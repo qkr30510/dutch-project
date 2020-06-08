@@ -1,12 +1,14 @@
 import React from 'react'
-import InputBox from './InputBox'
+import Total from './Total'
+
 
 const Main = () => {
 
     
     return (
         <div>
-            <InputBox />
+            <Total />
+      
         </div>
     )
 }

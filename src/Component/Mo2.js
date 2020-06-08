@@ -2,7 +2,7 @@ import React,{useCallback,useState} from 'react';
 
 
 
-const Mo = ({ConstClick} ) => {
+const Mo = () => {
     const [state, Setstate] = useState('');
 
 
@@ -12,7 +12,7 @@ const Mo = ({ConstClick} ) => {
  
     return (
         <>
-            <input type="text" value={state} onChange={onChange} onClick={()=>ConstClick(state)}/>
+            <input type="text" value={state} onChange={onChange} />
         </>
     )
 }
