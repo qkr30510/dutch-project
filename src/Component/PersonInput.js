@@ -1,13 +1,12 @@
-import React, { useCallback,useState } from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 import Onchange from './Onchange';
 
-const PersonInput = () => {
-  const PersonInput = styled.div`
-    border: 1px solid red;
-  `;
-
+const PersonInputs = styled.div`
+  border: 1px solid red;
+`;
+const PersonInput = ({onChange,state,setId, setIds}) => {
   const InputBox = [
     {
       id: 1,
@@ -28,29 +27,17 @@ const PersonInput = () => {
   ];
 
   
-
-  const Insert = useCallback((id)=>{
-    console.log('나오나',id)
-  },[])
-
-const valueChx = useCallback((state) => {
-    console.log('?',state)
-},[])
-  
-//   console.log('나오나',Insert)
-
-
   let InputBoxs = InputBox.map((InputBoxLi, index) => (
-    <div key={index}>
+    <div key={index} setIds={setIds(InputBoxLi.id)}>
       <span>{InputBoxLi.id}</span>
       <span>{InputBoxLi.title}</span>
-      <Onchange Insert={()=>Insert(InputBoxLi.id)} valueChx={valueChx} />
+      <Onchange value={state}   onChange={onChange} />
     </div>
   ));
 
   return (
     <>
-      <PersonInput >{InputBoxs}</PersonInput>
+      <PersonInputs>{InputBoxs}</PersonInputs>
     </>
   );
 };

@@ -3,10 +3,12 @@ import styled from 'styled-components';
 
 import Onchange from './Onchange';
 
-const CostInput = () => {
-  const CostInput = styled.div`
+const CostInputs = styled.div`
     border: 1px solid blue;
   `;
+
+const CostInput = ({onChange,state,setId, setIds}) => {
+  
 
   const CostBox = [
     {
@@ -28,16 +30,16 @@ const CostInput = () => {
   ];
 
   let CostBoxs = CostBox.map((costBoxLi, index) => (
-    <div key={index}>
+    <div key={index} setIds={setIds(costBoxLi.id)}>
       <span>{costBoxLi.id}</span>
       <span>{costBoxLi.title}</span>
-      <Onchange />
+      <Onchange value={state}   onChange={onChange}/>
     </div>
   ));
 
   return (
     <>
-      <CostInput>{CostBoxs}</CostInput>
+      <CostInputs>{CostBoxs}</CostInputs>
     </>
   );
 };
