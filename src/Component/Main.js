@@ -1,4 +1,4 @@
-import React, { useState, useCallback,useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import Input from './Input';
 import Input2 from './Input2';
@@ -20,7 +20,7 @@ const PayBox = styled.div``;
 const Main = () => {
   const [payvalue, setPayvalue] = useState('');
   const [personvalue, setPersonvalue] = useState('');
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([]);
 
   const Title = [
     {
@@ -53,13 +53,18 @@ const Main = () => {
     setPersonvalue(e.target.value);
   }, []);
 
-  useEffect((e)=>{
-    setResult(personvalue / payvalue)
-  },[personvalue, payvalue])
+  useEffect(
+    (e) => {
+      setResult(personvalue / payvalue);
+      
+    },
+    [personvalue, payvalue],
+  );
 
+  
   let Tities = Title.map((Titless) => (
-    <Wrap>
-      <Titlebox key={Titless.id} >
+    <Wrap key={Titless.id} id={Titless.id} result={result}>
+      <Titlebox id={Titless.id}>
         <span>{Titless.id}</span>
         <span>{Titless.name}</span>
         <Input value={payvalue} OnChange={OnChange} />
@@ -69,12 +74,29 @@ const Main = () => {
         <span>{Titless.pay}</span>
         <Input2 value={personvalue} OnChange={OnChange2} />
       </PayBox>
+      <span>{result}</span>
     </Wrap>
   ));
-  console.log('x', payvalue, 'c', personvalue);  
-  console.log('계산',  result);
-  
 
-  return <div>{Tities}</div>;
+  console.log('체크' , Tities[1].props.result);
+  console.log('x', payvalue, 'c', personvalue);
+
+  const onClick = (()=>{
+    console.log('계산', result);
+    // setRealmain(result)
+  },[])
+
+  // const onClick = (()=>{
+  //   console.log('계산', result);
+  //   setRealmain(result)
+
+  // },[])
+
+  return (
+    <div>
+      {Tities}
+      <button type="button" onClick={onClick}>클릭</button>
+    </div>
+  );
 };
 export default Main;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Realmain from './Component/Realmain';
 import Main from './Component/Main';
 import 'bootstrap/dist/css/bootstrap.css'
 

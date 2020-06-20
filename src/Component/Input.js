@@ -2,7 +2,7 @@ import React from 'react';
 const Input = ({payvalue,OnChange}) => {
     return (
         <>
-            <input type="text" onChange={OnChange} value={payvalue} />
+            <input type="number" onChange={OnChange} value={payvalue} />
         </>
     )
 }

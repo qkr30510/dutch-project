@@ -2,7 +2,7 @@ import React from 'react';
 const Input2 = ({personvalue,OnChange,}) => {
     return (
         <>
-            <input type="text" onChange={OnChange} value={personvalue}/>
+            <input type="number" onChange={OnChange} value={personvalue}/>
         </>
     )
 }
