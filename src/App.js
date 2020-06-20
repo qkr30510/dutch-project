@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
     <div> 편하게 더치페이 </div>
-    <Main/>
+    <Realmain/>
   </>
   )
 

@@ -16,34 +16,11 @@ const Titlebox = styled.div`
   justify-content: space-between;
   width: 55%;
 `;
-const PayBox = styled.div``;
-const Main = () => {
+
+const Main = ({setresults}) => {
   const [payvalue, setPayvalue] = useState('');
   const [personvalue, setPersonvalue] = useState('');
-  const [result, setResult] = useState([]);
-
-  const Title = [
-    {
-      name: '전체인원',
-      id: 1,
-      pay: '금액',
-    },
-    {
-      name: '술먹은 인원',
-      id: 2,
-      pay: '금액',
-    },
-    {
-      name: '음료먹은 인원',
-      id: 3,
-      pay: '금액',
-    },
-    {
-      name: '술과 음료를 먹은 인원',
-      id: 4,
-      pay: '금액',
-    },
-  ];
+  const [result, setResult] = useState();
 
   const OnChange = useCallback((e) => {
     setPayvalue(e.target.value);
@@ -56,47 +33,17 @@ const Main = () => {
   useEffect(
     (e) => {
       setResult(personvalue / payvalue);
-      
+      setresults(result);
     },
-    [personvalue, payvalue],
+    [setresults, personvalue, payvalue,result],
   );
-
-  
-  let Tities = Title.map((Titless) => (
-    <Wrap key={Titless.id} id={Titless.id} result={result}>
-      <Titlebox id={Titless.id}>
-        <span>{Titless.id}</span>
-        <span>{Titless.name}</span>
-        <Input value={payvalue} OnChange={OnChange} />
-      </Titlebox>
-      <PayBox id={Titless.id}>
-        <span>{Titless.id}</span>
-        <span>{Titless.pay}</span>
-        <Input2 value={personvalue} OnChange={OnChange2} />
-      </PayBox>
-      <span>{result}</span>
-    </Wrap>
-  ));
-
-  console.log('체크' , Tities[1].props.result);
-  console.log('x', payvalue, 'c', personvalue);
-
-  const onClick = (()=>{
-    console.log('계산', result);
-    // setRealmain(result)
-  },[])
-
-  // const onClick = (()=>{
-  //   console.log('계산', result);
-  //   setRealmain(result)
-
-  // },[])
-
   return (
-    <div>
-      {Tities}
-      <button type="button" onClick={onClick}>클릭</button>
-    </div>
+    <div setresults={setresults}>
+      <Input2 value={payvalue} OnChange={OnChange} /> <span>금액</span>
+      <Input value={personvalue} OnChange={OnChange2} />
+      <span>1인 부담금</span>
+      <span>{result}</span>
+    </div >
   );
 };
 export default Main;
