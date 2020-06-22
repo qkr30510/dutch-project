@@ -1,23 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import styled from 'styled-components';
 import Input from './Input';
 import Input2 from './Input2';
+import Resultmath from './Resultmath';
 
-const Wrap = styled.div`
-  border: 1px solid red;
-  margin-bottom: 2rem;
-  max-width: 640px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-const Titlebox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 55%;
-`;
-
-const Main = ({setresults}) => {
+const Main = ({ setresults, dd }) => {
   const [payvalue, setPayvalue] = useState('');
   const [personvalue, setPersonvalue] = useState('');
   const [result, setResult] = useState();
@@ -35,15 +21,19 @@ const Main = ({setresults}) => {
       setResult(personvalue / payvalue);
       setresults(result);
     },
-    [setresults, personvalue, payvalue,result],
+    [setresults, personvalue, payvalue, result],
   );
+
+  console.log('id',dd)
+  console.log('value',dd.value)
+    
   return (
-    <div setresults={setresults}>
+    <div>
       <Input2 value={payvalue} OnChange={OnChange} /> <span>금액</span>
       <Input value={personvalue} OnChange={OnChange2} />
       <span>1인 부담금</span>
-      <span>{result}</span>
-    </div >
+      <Resultmath dd={dd} result={result} />
+    </div>
   );
 };
 export default Main;
