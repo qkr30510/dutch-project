@@ -4,7 +4,7 @@ const Resultmath = ({ dd, result}) => {
   return (
     <>
       <span id={dd}>
-        {result},{dd}
+        {result}
       </span>
     </>
   );

@@ -3,10 +3,15 @@ import Input from './Input';
 import Input2 from './Input2';
 import Resultmath from './Resultmath';
 
-const Main = ({ setresults, dd }) => {
+const Main = ({ setresults, dd,settotalperson,settotalprice}) => {
+// const Main = ({dd, setaa, setbb }) => {
   const [payvalue, setPayvalue] = useState('');
   const [personvalue, setPersonvalue] = useState('');
+  // const [result, setResult] = useState([]);
   const [result, setResult] = useState();
+  // const [resultss, setResultss] = useState();
+  
+  
 
   const OnChange = useCallback((e) => {
     setPayvalue(e.target.value);
@@ -16,24 +21,39 @@ const Main = ({ setresults, dd }) => {
     setPersonvalue(e.target.value);
   }, []);
 
+  
   useEffect(
-    (e) => {
-      setResult(personvalue / payvalue);
-      setresults(result);
+    (e) => {      
+      setResult(personvalue / payvalue);    
+      setresults((prevState) => {
+        const t  = [...prevState]
+        t[dd-1] = personvalue / payvalue;
+        return  t;
+       })
+       settotalperson((prev)=>{
+         const s = [...prev]
+         s[dd-1] = payvalue
+         return s;
+       })
+       settotalprice((prev)=>{
+        const s = [...prev]
+        s[dd-1] = personvalue
+        return s;
+      })
     },
-    [setresults, personvalue, payvalue, result],
+    [personvalue, payvalue],
+    // [personvalue, payvalue, setresults],
   );
 
-  console.log('id',dd)
-  console.log('value',dd.value)
-    
+//  console.log('id',dd,'result',result)
+  
   return (
-    <div>
+    <>
       <Input2 value={payvalue} OnChange={OnChange} /> <span>금액</span>
       <Input value={personvalue} OnChange={OnChange2} />
       <span>1인 부담금</span>
       <Resultmath dd={dd} result={result} />
-    </div>
+    </>
   );
 };
 export default Main;
