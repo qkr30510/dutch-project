@@ -1,18 +1,20 @@
 import React from 'react';
 import Realmain from './Component/Realmain';
-// import Main from './Component/Main';
-import 'bootstrap/dist/css/bootstrap.css'
 import Result from './Component/Result';
-
+// import Main from './Component/Main';
+import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const App = () => {
   return (
     <>
-    <div> 편하게 더치페이 </div>
-    <Realmain/>
-    <Result/>
-  </>
-  )
-
-}
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Realmain}></Route>
+          <Route path="/Result"  component={Result}></Route>
+        </Switch>
+      </BrowserRouter>
+    </>
+  );
+};
 export default App;

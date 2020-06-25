@@ -3,9 +3,9 @@ const Resultmath = ({ dd, result}) => {
   
   return (
     <>
-      <span id={dd}>
+
         {result}
-      </span>
+
     </>
   );
 };
