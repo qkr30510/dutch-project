@@ -1,0 +1,65 @@
+.wrap{    
+   
+  h1{
+      font-size:1.5rem;
+      font-weight: 700;    
+      padding:1rem;
+      font-style: italic;
+      color:#0053ff;
+      margin-bottom:3rem;
+  }
+}
+.boxwrap{
+    background:#eee;
+    padding:1rem;
+    
+    
+}
+
+.col-md-7{    
+    margin:auto;   
+    
+}
+
+.btn{
+    display:block !important;
+    margin:auto;
+    margin-top:2rem;
+    
+}
+.sbox{
+    border-bottom:1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:1rem;
+    // align-items: center;
+
+}
+
+.main{
+    display:inline-block;
+    width:calc(100% - 15%)
+
+}
+.duble{width:17.5%; display:inline-block}
+
+.pay{
+    float:right;
+}
+
+.personinput{
+    width:15%;
+    text-align: right;
+}
+.payinput{
+    text-align: right;
+    
+}
+
+.oneperson{        
+    text-align: right;
+}
+.oneresult{
+    color:red;
+    font-weight: 700;;
+}

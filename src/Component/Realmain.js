@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import Main from './Main';
-import styled from 'styled-components';
 import Input2 from './Input2';
 import Input from './Input';
 import { Link, Redirect } from 'react-router-dom';
-
-const Wrap = styled.div`
-  border: 1px solid red;
-`;
+import './../Css/Realmain.scss';
 
 const Paylists = [
   {
@@ -31,7 +27,7 @@ const Realmain = ({ history }) => {
   const [move, setmove] = useState(false);
 
   let Paylist = Paylists.map((paycontent) => (
-    <div key={paycontent.id}>
+    <div key={paycontent.id} className="sbox">
       <span>{paycontent.title}</span>
       <Main
         setresults={setresults}
@@ -58,36 +54,44 @@ const Realmain = ({ history }) => {
       // Number(totalperson[0]) + Number(totalperson[1]) + Number(totalperson[2]),
       // '전체금액',
       // Number(totalprice[0]) + Number(totalprice[1]) + Number(totalprice[2]),
-      results
+      results,
     );
     setmove(true);
   };
   // console.log(results)
   // const Totalperson =
+
+  const totalfee = Number(totalprice[0])+Number(totalprice[1])+Number(totalprice[2])
+  
+  
   return (
-    <div>
-      <p>편하게 더치페이 </p>
-      <Wrap>
+    <div className="wrap">
+      <h1>편하게 더치페이 </h1>
+      <div className="col-xs-7 col-md-7 boxwrap">
         {Paylist}
-        <div>
-          <span>중복</span>
+        <div  className="sbox">
+          <div className='main'>
+          <span className='duble'>술과 음료 모두 먹은 인원</span>
           <Input2 />
+          <span>명</span>
+          </div>
+          <div>
+            <span>전체금액</span>
+            <span className='oneresult'>
+            {totalfee}
+            </span>
+            
+          </div>
         </div>
         {/* <div >
           <span>전체인원</span>
           {Number(totalperson[0])+Number(totalperson[1])+Number(totalperson[2])}
         </div>       */}
-        <div>
-          <span>전체금액</span>
-          {Number(totalprice[0]) +
-            Number(totalprice[1]) +
-            Number(totalprice[2])}
-        </div>
-      </Wrap>
-      <button type="button" onClick={onClick}>
+      </div>
+      <button className="btn btn-primary" type="button" onClick={onClick}>
         결과 확인
       </button>
-      {move && <Redirect to={{ pathname: './Result', state: { results}}}/>}
+      {move && <Redirect to={{ pathname: './Result', state: { results } }} />}
     </div>
   );
 };

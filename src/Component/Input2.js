@@ -1,8 +1,8 @@
 import React from 'react';
-const Input2 = ({personvalue,OnChange,}) => {
+const Input2 = ({personvalue,OnChange}) => {
     return (
         <>
-            <input type="number" onChange={OnChange} value={personvalue}/>
+            <input type="text" onChange={OnChange} value={personvalue} className='personinput'/>
         </>
     )
 }
