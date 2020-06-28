@@ -28,6 +28,12 @@ const Result = ({ history, results, location, props }) => {
         <li>음식 + 음료: {fir + fir3}</li>
         <li>음식 + 술 + 음료: {fir + fir2 + fir3}</li>
       </ul>
+      <ul>
+        <li>전체금액: (전체금액),(인원),(1인금액)</li>
+        <li>음식 엔빵: (전체금액),(인원),(1인금액) </li>
+        <li>술 엔빵: (전체금액),(인원),(1인금액)</li>
+        <li>음료 엔빵: (전체금액),(인원),(1인금액)</li>
+      </ul>
     </>
   );
 };

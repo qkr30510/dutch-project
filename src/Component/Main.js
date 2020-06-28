@@ -19,10 +19,12 @@ const Main = ({ setresults, dd, settotalperson, settotalprice }) => {
     // setPersonvalue;
     setPersonvalue(e.target.value);
   }, []);
+const check = personvalue / payvalue
 
+console.log('check',check)
   useEffect(
-    (e) => {
-      setResult(personvalue / payvalue);
+    (e) => {      
+      setResult(check.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       setresults((prevState) => {
         const t = [...prevState];
         t[dd - 1] = personvalue / payvalue;
@@ -37,14 +39,15 @@ const Main = ({ setresults, dd, settotalperson, settotalprice }) => {
         const s = [...prev];
         s[dd - 1] = personvalue;
         return s;
-      });
+      });      
     },
 
     [personvalue, payvalue],
     // [personvalue, payvalue, setresults],
   );
-
-  console.log(personvalue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+  
+   console.log(personvalue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+  
 
   //  console.log('id',dd,'result',result)
 

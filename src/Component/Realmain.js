@@ -12,11 +12,11 @@ const Paylists = [
   },
   {
     id: 2,
-    title: '술',
+    title: '술 마신 인원',
   },
   {
     id: 3,
-    title: '음료',
+    title: '음료 마신 인원',
   },
 ];
 
@@ -78,7 +78,7 @@ const Realmain = ({ history }) => {
           <div>
             <span>전체금액</span>
             <span className='oneresult'>
-            {totalfee}
+            {totalfee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </span>
             
           </div>
