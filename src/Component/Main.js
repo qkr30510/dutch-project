@@ -21,7 +21,7 @@ const Main = ({ setresults, dd, settotalperson, settotalprice }) => {
   }, []);
 const check = personvalue / payvalue
 
-console.log('check',check)
+ 
   useEffect(
     (e) => {      
       setResult(check.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));

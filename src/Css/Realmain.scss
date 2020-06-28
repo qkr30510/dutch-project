@@ -1,5 +1,9 @@
+
+html,body, #root, .wrap{
+    height:100%;
+}
 .wrap{    
-   
+   display: flex;
   h1{
       font-size:1.5rem;
       font-weight: 700;    
@@ -12,12 +16,14 @@
 .boxwrap{
     background:#eee;
     padding:1rem;
-    
+    width:500px;
+    margin:auto;   
+    border:1px dotted #333;
     
 }
 
-.col-md-7{    
-    margin:auto;   
+.col-md-4{    
+  
     
 }
 
@@ -32,16 +38,15 @@
     display: flex;
     justify-content: space-between;
     margin-bottom:1rem;
-    // align-items: center;
+    padding-bottom:1rem;
+    // align-items: center;    
 
 }
 
 .main{
-    display:inline-block;
-    width:calc(100% - 15%)
-
+    width:calc(100% - 25%)
 }
-.duble{width:17.5%; display:inline-block}
+.duble{display:inline-block; margin-right:2rem;}
 
 .pay{
     float:right;
@@ -58,6 +63,7 @@
 
 .oneperson{        
     text-align: right;
+    margin-top:0.5rem;
 }
 .oneresult{
     color:red;

@@ -61,36 +61,36 @@ const Realmain = ({ history }) => {
   // console.log(results)
   // const Totalperson =
 
-  const totalfee = Number(totalprice[0])+Number(totalprice[1])+Number(totalprice[2])
-  
-  
+  const totalfee =
+    Number(totalprice[0]) + Number(totalprice[1]) + Number(totalprice[2]);
+
   return (
     <div className="wrap">
-      <h1>편하게 더치페이 </h1>
-      <div className="col-xs-7 col-md-7 boxwrap">
+      <div className="col-xs-2 boxwrap">
+        <h1>편하게 더치페이 </h1>
         {Paylist}
-        <div  className="sbox">
-          <div className='main'>
-          <span className='duble'>술과 음료 모두 먹은 인원</span>
-          <Input2 />
-          <span>명</span>
+        <div className="sbox">
+          <div className="main">
+            <span className="duble">술과 음료 모두 먹은 인원</span>
+            <Input2 />
+            <span>명</span>
           </div>
           <div>
             <span>전체금액</span>
-            <span className='oneresult'>
-            {totalfee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            <span className="oneresult">
+              {totalfee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </span>
-            
           </div>
         </div>
         {/* <div >
           <span>전체인원</span>
           {Number(totalperson[0])+Number(totalperson[1])+Number(totalperson[2])}
         </div>       */}
+        <button className="btn btn-primary" type="button" onClick={onClick}>
+          결과 확인
+        </button>
       </div>
-      <button className="btn btn-primary" type="button" onClick={onClick}>
-        결과 확인
-      </button>
+
       {move && <Redirect to={{ pathname: './Result', state: { results } }} />}
     </div>
   );
