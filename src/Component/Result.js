@@ -1,4 +1,5 @@
 import React from 'react';
+import './../Css/Result.scss';
 
 const Result = ({ history, results, location, props }) => {
   // '전체+술',
@@ -18,23 +19,81 @@ const Result = ({ history, results, location, props }) => {
   const fir3 = location.state.results[2];
 
   console.log(fir + fir2);
-
+  console.log(
+    location.state.totalfee,
+    location.state.totalperson,
+    location.state.totalprice,
+  );
   return (
-    <>
-      <h2>결과</h2>
-      <ul>
-        <li>음식 : {fir}</li>
-        <li>음식+술: {fir + fir2}</li>
-        <li>음식 + 음료: {fir + fir3}</li>
-        <li>음식 + 술 + 음료: {fir + fir2 + fir3}</li>
-      </ul>
-      <ul>
-        <li>전체금액: (전체금액),(인원),(1인금액)</li>
-        <li>음식 엔빵: (전체금액),(인원),(1인금액) </li>
-        <li>술 엔빵: (전체금액),(인원),(1인금액)</li>
-        <li>음료 엔빵: (전체금액),(인원),(1인금액)</li>
-      </ul>
-    </>
+    <div className="wrap">
+      <div className="boxwrap">
+        <h1>결과</h1>
+        <ul>
+          <li>전체금액 {location.state.totalfee}</li>
+          <li>음식만 먹은사람: {fir}</li>
+          <li>음식+술만 먹은사람: {fir + fir2}</li>
+          <li>음식 + 음료만 먹은사람: {fir + fir3}</li>
+          <li>음식 + 술 + 음료만 먹은사람: {fir + fir2 + fir3}</li>
+        </ul>
+        <ul className="detail">
+          <h2>상세 내역</h2>
+          <li>
+            <h2>음식 엔빵</h2>
+            <div>
+              <p>
+                전체금액: <span>{location.state.totalprice[0]}</span>
+              </p>
+              <p>
+                인원:<span>{location.state.totalperson[0]}</span>
+              </p>
+              <p>
+                1인금액:{' '}
+                <span>
+                  {' '}
+                  {location.state.totalprice[0] / location.state.totalperson[0]}
+                </span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <h2>술 엔빵</h2>{' '}
+            <div>
+              <p>
+                전체금액:<span>{location.state.totalprice[1]}</span>
+              </p>
+              <p>
+                인원: <span>{location.state.totalperson[1]}</span>
+              </p>
+              <p>
+                1인금액:{' '}
+                <span>
+                  {' '}
+                  {location.state.totalprice[0] / location.state.totalperson[1]}
+                </span>
+              </p>
+            </div>
+          </li>
+          <li>
+            <h2>음료 엔빵:</h2>{' '}
+            <div>
+              <p>
+                전체금액:<span>{location.state.totalprice[2]}</span>
+              </p>
+              <p>
+                인원: <span>{location.state.totalperson[2]}</span>
+              </p>
+              <p>
+                1인금액:{' '}
+                <span>
+                  {' '}
+                  {location.state.totalprice[0] / location.state.totalperson[2]}
+                </span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 export default Result;

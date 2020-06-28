@@ -8,7 +8,7 @@ import './../Css/Realmain.scss';
 const Paylists = [
   {
     id: 1,
-    title: '전체인원',
+    title: '음식만 먹은 인원',
   },
   {
     id: 2,
@@ -71,8 +71,8 @@ const Realmain = ({ history }) => {
         {Paylist}
         <div className="sbox">
           <div className="main">
-            <span className="duble">술과 음료 모두 먹은 인원</span>
-            <Input2 />
+            <span className="duble">총 인원</span>
+            {Number(totalperson[0]) + Number(totalperson[1]) + Number(totalperson[2])}
             <span>명</span>
           </div>
           <div>
@@ -91,7 +91,7 @@ const Realmain = ({ history }) => {
         </button>
       </div>
 
-      {move && <Redirect to={{ pathname: './Result', state: { results } }} />}
+      {move && <Redirect to={{ pathname: './Result', state: { results,totalfee, totalperson,totalprice} }} />}
     </div>
   );
 };

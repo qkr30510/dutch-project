@@ -1,0 +1,13 @@
+.detail {
+  h2 {
+    font-weight: 700;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #000;
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}

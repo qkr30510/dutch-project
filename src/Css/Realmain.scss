@@ -4,14 +4,7 @@ html,body, #root, .wrap{
 }
 .wrap{    
    display: flex;
-  h1{
-      font-size:1.5rem;
-      font-weight: 700;    
-      padding:1rem;
-      font-style: italic;
-      color:#0053ff;
-      margin-bottom:3rem;
-  }
+
 }
 .boxwrap{
     background:#eee;
@@ -19,13 +12,16 @@ html,body, #root, .wrap{
     width:500px;
     margin:auto;   
     border:1px dotted #333;
-    
+    h1{
+        font-size:1.5rem;
+        font-weight: 700;    
+        padding:1rem;
+        font-style: italic;
+        color:#0053ff;
+        margin-bottom:3rem;
+    }
 }
 
-.col-md-4{    
-  
-    
-}
 
 .btn{
     display:block !important;
