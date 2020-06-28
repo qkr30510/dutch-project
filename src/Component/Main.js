@@ -42,7 +42,7 @@ const check = personvalue / payvalue
       });      
     },
 
-    [personvalue, payvalue],
+    [personvalue, payvalue, check, setresults, settotalperson, settotalprice, dd],
     // [personvalue, payvalue, setresults],
   );
   

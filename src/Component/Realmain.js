@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Main from './Main';
-import Input2 from './Input2';
-import Input from './Input';
-import { Link, Redirect } from 'react-router-dom';
+// import Input2 from './Input2';
+// import Input from './Input';
+import {  Redirect } from 'react-router-dom';
 import './../Css/Realmain.scss';
 
 const Paylists = [

@@ -1,13 +1,30 @@
-.detail {
-  h2 {
-    font-weight: 700;
-  }
-  li {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #000;
-    h2 {
-      font-size: 1.2rem;
+.boxwrap{
+    padding-top:3rem;
+    ul{
+        padding:0;
+        margin-bottom:3rem !important;
+        h2 {
+            font-weight: 700;
+            font-size: 1.3rem;
+            border-bottom: 1px double  #333;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+          }
+          
+      li {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px dotted #333;
+        margin-bottom:0.5rem;
+        h3 {
+          font-size: 1.2rem;
+        }
+        .bold{
+            color:red;
+            font-weight: 700;
+        }
+      }
     }
-  }
+    
+    
 }

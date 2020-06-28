@@ -13,84 +13,104 @@ const Result = ({ history, results, location, props }) => {
   // '전체금액',
   // Number(totalprice[0]) + Number(totalprice[1]) + Number(totalprice[2]),
 
-  console.log(location.state.results);
+  // console.log(location.state.results);
   const fir = location.state.results[0];
   const fir2 = location.state.results[1];
   const fir3 = location.state.results[2];
 
-  console.log(fir + fir2);
-  console.log(
-    location.state.totalfee,
-    location.state.totalperson,
-    location.state.totalprice,
-  );
+  // console.log(fir + fir2);
+  // console.log(
+  //   location.state.totalfee,
+  //   location.state.totalperson,
+  //   location.state.totalprice,
+  // );
+  const detaillists = [
+    {
+      title: '음식 엔빵',
+      totalprice: `${location.state.totalprice[0]}`,
+      totalperson: `${location.state.totalperson[0]}`,
+    },
+    {
+      title: '술 엔빵',
+      totalprice: `${location.state.totalprice[1]}`,
+      totalperson: `${location.state.totalperson[1]}`,
+    },
+    {
+      title: '음료 엔빵',
+      totalprice: `${location.state.totalprice[2]}`,
+      totalperson: `${location.state.totalperson[2]}`,
+    },
+  ];
+
+  let detaillist = detaillists.map((detailcontent, index) => (
+    <li key={index}>
+      <h3>{detailcontent.title}</h3>
+      <div>
+        <p>
+          전체금액:{' '}
+          <span>
+            {detailcontent.totalprice
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+          </span>
+        </p>
+        <p>
+          인원:<span>{detailcontent.totalperson}</span>
+        </p>
+        <p>
+          1인금액:{' '}
+          <span className='bold'>
+            {' '}
+            {(detailcontent.totalprice / detailcontent.totalperson)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+          </span>
+        </p>
+      </div>
+    </li>
+  ));
   return (
     <div className="wrap">
       <div className="boxwrap">
-        <h1>결과</h1>
         <ul>
-          <li>전체금액 {location.state.totalfee}</li>
-          <li>음식만 먹은사람: {fir}</li>
-          <li>음식+술만 먹은사람: {fir + fir2}</li>
-          <li>음식 + 음료만 먹은사람: {fir + fir3}</li>
-          <li>음식 + 술 + 음료만 먹은사람: {fir + fir2 + fir3}</li>
+          <h2>1인 부담금</h2>
+          <li>
+            전체금액{' '}
+            <span className='bold'>
+              {location.state.totalfee
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
+          </li>
+          <li>
+            음식만 먹은사람:{' '}
+            <span className='bold'>{fir.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+          </li>
+          <li>
+            음식+술 먹은사람:{' '}
+            <span className='bold'>
+              {(fir + fir2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
+          </li>
+          <li>
+            음식 + 음료 먹은사람:{' '}
+            <span className='bold'>
+              {(fir + fir3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
+          </li>
+          <li>
+            음식 + 술 + 음료 먹은사람:{' '}
+            <span className='bold'>
+              {(fir + fir2 + fir3)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
+          </li>
         </ul>
-        <ul className="detail">
+        <ul >
           <h2>상세 내역</h2>
-          <li>
-            <h2>음식 엔빵</h2>
-            <div>
-              <p>
-                전체금액: <span>{location.state.totalprice[0]}</span>
-              </p>
-              <p>
-                인원:<span>{location.state.totalperson[0]}</span>
-              </p>
-              <p>
-                1인금액:{' '}
-                <span>
-                  {' '}
-                  {location.state.totalprice[0] / location.state.totalperson[0]}
-                </span>
-              </p>
-            </div>
-          </li>
-          <li>
-            <h2>술 엔빵</h2>{' '}
-            <div>
-              <p>
-                전체금액:<span>{location.state.totalprice[1]}</span>
-              </p>
-              <p>
-                인원: <span>{location.state.totalperson[1]}</span>
-              </p>
-              <p>
-                1인금액:{' '}
-                <span>
-                  {' '}
-                  {location.state.totalprice[0] / location.state.totalperson[1]}
-                </span>
-              </p>
-            </div>
-          </li>
-          <li>
-            <h2>음료 엔빵:</h2>{' '}
-            <div>
-              <p>
-                전체금액:<span>{location.state.totalprice[2]}</span>
-              </p>
-              <p>
-                인원: <span>{location.state.totalperson[2]}</span>
-              </p>
-              <p>
-                1인금액:{' '}
-                <span>
-                  {' '}
-                  {location.state.totalprice[0] / location.state.totalperson[2]}
-                </span>
-              </p>
-            </div>
-          </li>
+
+          {detaillist}
         </ul>
       </div>
     </div>
