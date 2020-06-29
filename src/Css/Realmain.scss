@@ -1,67 +1,117 @@
-
-html,body, #root, .wrap{
-    height:100%;
+html,
+body,
+#root,
+.wrap {
+  height: 100%;
 }
-.wrap{    
-   display: flex;
-
+.wrap {
+  display: flex;
 }
-.boxwrap{
-    background:#eee;
-    padding:1rem;
-    width:500px;
-    margin:auto;   
-    border:1px dotted #333;
-    h1{
-        font-size:1.5rem;
-        font-weight: 700;    
-        padding:1rem;
-        font-style: italic;
-        color:#0053ff;
-        margin-bottom:3rem;
+.boxwrap {
+  background: #eee;
+  padding: 1rem;
+  width: 500px;
+  margin: auto;
+  border: 1px dotted #333;
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1rem;
+    font-style: italic;
+    color: #0053ff;
+    margin-bottom: 3rem;
+  }
+}
+
+.btn {
+  display: block !important;
+  margin: auto;
+  margin-top: 2rem;
+}
+.tit {
+  display: block;
+  float: left;
+  width: auto;
+}
+.sbox {
+  border-bottom: 1px solid lightgray;
+  // display: flex;
+  // justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  // align-items: center;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.tatalsbox {
+  display: flex;
+  justify-content: space-between;
+}
+.duble {
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+.pay {
+  float: right;
+}
+
+.personinput {
+  width: 15%;
+  text-align: right;
+}
+.payinput {
+  text-align: right;
+}
+
+.oneperson {
+  text-align: right;
+  margin-top: 0.5rem;
+  display: block;
+  width: 100%;
+}
+.oneresult {
+  color: red;
+  font-weight: 700;
+}
+.personInput {
+  display: inline;
+}
+
+$breakpoint-mobile: 500px;
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@include mobile {
+  .pay {
+    float: none;
+    display: flex;
+    justify-content: flex-end;
+    span:nth-child(1) {
+      margin-right: auto;
+    }
+  }
+  .personInput {
+    text-align: right;
+    display: block;
+  }
+  .tatalsbox {
+    display: block;
+    span {
+      margin-right: 2rem;
+    }
+  }
+  .main{
+    div{
+        margin-bottom:1rem;
     }
 }
-
-
-.btn{
-    display:block !important;
-    margin:auto;
-    margin-top:2rem;
-    
-}
-.sbox{
-    border-bottom:1px solid lightgray;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom:1rem;
-    padding-bottom:1rem;
-    // align-items: center;    
-
-}
-
-.main{
-    width:calc(100% - 25%)
-}
-.duble{display:inline-block; margin-right:2rem;}
-
-.pay{
-    float:right;
-}
-
-.personinput{
-    width:15%;
-    text-align: right;
-}
-.payinput{
-    text-align: right;
-    
-}
-
-.oneperson{        
-    text-align: right;
-    margin-top:0.5rem;
-}
-.oneresult{
-    color:red;
-    font-weight: 700;;
 }

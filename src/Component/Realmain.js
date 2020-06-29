@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Main from './Main';
 // import Input2 from './Input2';
 // import Input from './Input';
-import {  Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './../Css/Realmain.scss';
 
 const Paylists = [
@@ -28,7 +28,7 @@ const Realmain = ({ history }) => {
 
   let Paylist = Paylists.map((paycontent) => (
     <div key={paycontent.id} className="sbox">
-      <span>{paycontent.title}</span>
+      <span className='tit'>{paycontent.title}</span>
       <Main
         setresults={setresults}
         dd={paycontent.id}
@@ -69,7 +69,7 @@ const Realmain = ({ history }) => {
       <div className="col-xs-2 boxwrap">
         <h1>편하게 더치페이 </h1>
         {Paylist}
-        <div className="sbox">
+        <div className="tatalsbox">
           <div className="main">
             <span className="duble">총 인원</span>
             {Number(totalperson[0]) + Number(totalperson[1]) + Number(totalperson[2])}
@@ -80,6 +80,7 @@ const Realmain = ({ history }) => {
             <span className="oneresult">
               {totalfee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </span>
+            
           </div>
         </div>
         {/* <div >

@@ -52,9 +52,11 @@ const check = personvalue / payvalue
   //  console.log('id',dd,'result',result)
 
   return (
-    <div className="main">
+    <div className='main'>
+      <div className='personInput'>
       <Input2 value={payvalue} OnChange={OnChange} />
       <span>명</span>
+      </div>
       <div className="pay">
         <span>금액</span>
         <Input value={personvalue} OnChange={OnChange2} />
