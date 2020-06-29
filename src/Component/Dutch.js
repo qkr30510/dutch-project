@@ -12,37 +12,38 @@ const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
   // const [resultss, setResultss] = useState();
 
   const OnChange = useCallback((e) => {
-    setPayvalue(e.target.value);
+    setPersonvalue(e.target.value);
   }, []);
 
   const OnChange2 = useCallback((e) => {
     // setPersonvalue;
-    setPersonvalue(e.target.value);
+    setPayvalue(e.target.value);
   }, []);
-const check = personvalue / payvalue
+
+const division = payvalue/personvalue
 
  
   useEffect(
     (e) => {      
-      setResult(check.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+      setResult(division.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
       setresults((prevState) => {
         const t = [...prevState];
-        t[dd - 1] = personvalue / payvalue;
+        t[dd - 1] =payvalue/personvalue;
         return t;
       });
       settotalperson((prev) => {
         const s = [...prev];
-        s[dd - 1] = payvalue;
+        s[dd - 1] = personvalue;
         return s;
       });
       settotalprice((prev) => {
         const s = [...prev];
-        s[dd - 1] = personvalue;
+        s[dd - 1] = payvalue;
         return s;
       });      
     },
 
-    [personvalue, payvalue, check, setresults, settotalperson, settotalprice, dd],
+    [personvalue, payvalue, division, setresults, settotalperson, settotalprice, dd],
     // [personvalue, payvalue, setresults],
   );
   
@@ -54,12 +55,12 @@ const check = personvalue / payvalue
   return (
     <div className='main'>
       <div className='personInput'>
-      <Personinput value={payvalue} OnChange={OnChange} />
+      <Personinput value={personvalue} OnChange={OnChange} />
       <span>명</span>
       </div>
       <div className="pay">
         <span>금액</span>
-        <PayInput value={personvalue} OnChange={OnChange2} />
+        <PayInput value={payvalue} OnChange={OnChange2} />
         <span>원</span>
       </div>
       <div className="oneperson">

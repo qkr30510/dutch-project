@@ -53,7 +53,7 @@ const Result = ({ location}) => {
   ));
   return (
     <div className="wrap">
-      <div className="boxwrap">
+      <div className="dutchcontainer boxwrap ">
         <ul>
           <h2>1인 부담금</h2>
           <li>

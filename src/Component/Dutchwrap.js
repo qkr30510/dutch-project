@@ -49,7 +49,7 @@ const Dutchwrap = ({ history }) => {
 
   return (
     <div className="wrap">
-      <div className="col-xs-2 boxwrap">
+      <div className="col-xs-2 dutchcontainer">
         <h1>편하게 더치페이 </h1>
         {Paylist}
         <div className="tatalsbox">
