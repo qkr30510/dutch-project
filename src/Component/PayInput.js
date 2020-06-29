@@ -1,5 +1,5 @@
 import React from 'react';
-const Input = ({ payvalue, OnChange}) => {
+const PayInput = ({ payvalue, OnChange}) => {
 
 
 
@@ -14,4 +14,4 @@ const Input = ({ payvalue, OnChange}) => {
     </>
   );
 };
-export default Input;
+export default PayInput;

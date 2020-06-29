@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import Input from './Input';
-import Input2 from './Input2';
+import PayInput from './PayInput';
+import Personinput from './Personinput';
 import './../Css/Main.scss';
 
-const Main = ({ setresults, dd, settotalperson, settotalprice }) => {
+const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
   // const Main = ({dd, setaa, setbb }) => {
   const [payvalue, setPayvalue] = useState('');
   const [personvalue, setPersonvalue] = useState('');
@@ -46,7 +46,7 @@ const check = personvalue / payvalue
     // [personvalue, payvalue, setresults],
   );
   
-   console.log(personvalue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+  //  console.log(personvalue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
   
 
   //  console.log('id',dd,'result',result)
@@ -54,12 +54,12 @@ const check = personvalue / payvalue
   return (
     <div className='main'>
       <div className='personInput'>
-      <Input2 value={payvalue} OnChange={OnChange} />
+      <Personinput value={payvalue} OnChange={OnChange} />
       <span>명</span>
       </div>
       <div className="pay">
         <span>금액</span>
-        <Input value={personvalue} OnChange={OnChange2} />
+        <PayInput value={personvalue} OnChange={OnChange2} />
         <span>원</span>
       </div>
       <div className="oneperson">
@@ -69,4 +69,4 @@ const check = personvalue / payvalue
     </div>
   );
 };
-export default Main;
+export default Dutch;

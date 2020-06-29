@@ -1,5 +1,5 @@
 import React from 'react';
-import Realmain from './Component/Realmain';
+import Dutchwrap from './Component/Dutchwrap';
 import Result from './Component/Result';
 // import Main from './Component/Main';
 
@@ -10,7 +10,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={Realmain}></Route>
+          <Route path="/" exact component={Dutchwrap}></Route>
           <Route path="/Result" component={Result}></Route>
         </Switch>
       </BrowserRouter>
