@@ -3,7 +3,7 @@ import Dutch from './Dutch';
 // import Input2 from './Input2';
 // import Input from './Input';
 import { Redirect } from 'react-router-dom';
-import './../Css/Realmain.scss';
+import './../Css/Dutchwrap.scss';
 
 const Paylists = [
   {
