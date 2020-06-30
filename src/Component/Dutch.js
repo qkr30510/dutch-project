@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PayInput from './PayInput';
 import Personinput from './Personinput';
-import './../Css/Main.scss';
+import './../Css/Dutchwrap.scss';
 
 const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
   // const Main = ({dd, setaa, setbb }) => {

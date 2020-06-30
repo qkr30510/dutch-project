@@ -1,6 +1,10 @@
 
 .wrap {
-  display: flex;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);  
+  
 }
 .dutchcontainer {
   background: #eee;
@@ -15,6 +19,9 @@
     font-style: italic;
     color: #0053ff;
     margin-bottom: 3rem;
+  }
+  input{
+    font-size:0.9rem;
   }
 }
 
@@ -58,9 +65,12 @@
 .personinput {
   width: 15%;
   text-align: right;
+  margin-left: 5px;
 }
 .payinput {
   text-align: right;
+  margin-left: 5px;
+  
 }
 
 .oneperson {
