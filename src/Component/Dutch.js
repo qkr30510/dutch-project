@@ -2,18 +2,18 @@ import React, { useState, useCallback, useEffect } from 'react';
 import PayInput from './PayInput';
 import Personinput from './Personinput';
 import './../Css/Dutchwrap.scss';
+import { number } from 'prop-types';
 
 const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
   // const Main = ({dd, setaa, setbb }) => {
-  const [payvalue, setPayvalue] = useState('');
-  const [personvalue, setPersonvalue] = useState('');
-  // const [result, setResult] = useState([]);
-  const [result, setResult] = useState();
-  // const [resultss, setResultss] = useState();
+  const [payvalue, setPayvalue] = useState();
+  const [personvalue, setPersonvalue] = useState();
+  const [result, setResult] = useState(0);
 
   const OnChange = useCallback((e) => {
     setPersonvalue(e.target.value);
   }, []);
+
 
   const OnChange2 = useCallback((e) => {
     // setPersonvalue;
@@ -21,11 +21,18 @@ const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
   }, []);
 
 const division = payvalue/personvalue
-
  
+
+
   useEffect(
     (e) => {      
-      setResult(division.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+      if(payvalue && personvalue){
+        setResult(division.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+      }else{
+        setResult(0);
+      }
+      
+      
       setresults((prevState) => {
         const t = [...prevState];
         t[dd - 1] =payvalue/personvalue;
@@ -51,6 +58,11 @@ const division = payvalue/personvalue
   
 
   //  console.log('id',dd,'result',result)
+  
+  
+  // if(isNaN(result)){
+  //   Number.isNaN(Number(result));
+  // }
 
   return (
     <div className='main'>

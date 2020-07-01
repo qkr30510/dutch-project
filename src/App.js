@@ -11,7 +11,6 @@ const App = () => {
     <>
       <Helmet>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keywords" content="더치페이, 개별계산, 계산, 1인계산, " />
         <meta name="description" content="더치페이 사이트" />
         <meta name="author" content="juhee" />

@@ -28,7 +28,7 @@ const Dutchwrap = ({ history }) => {
 
   let Paylist = Paylists.map((paycontent) => (
     <div key={paycontent.id} className="sbox">
-      <span className='tit'>{paycontent.title}</span>
+      <span className="tit">{paycontent.title}</span>
       <Dutch
         setresults={setresults}
         dd={paycontent.id}
@@ -38,14 +38,17 @@ const Dutchwrap = ({ history }) => {
     </div>
   ));
 
+  
+    const totalfee = Number(totalprice[0]) + Number(totalprice[1]) + Number(totalprice[2]);
 
-
-  const onClick = () => {    
-    setmove(true);
+  const onClick = () => {
+    if (totalprice[0] === undefined) {
+      alert('값을 입력해주세요.')
+      return false;
+    } else {
+      setmove(true);
+    }
   };
-
-  const totalfee =
-    Number(totalprice[0]) + Number(totalprice[1]) + Number(totalprice[2]);
 
   return (
     <div className="wrap">
@@ -55,7 +58,9 @@ const Dutchwrap = ({ history }) => {
         <div className="tatalsbox">
           <div className="main">
             <span className="duble">총 인원</span>
-            {Number(totalperson[0]) + Number(totalperson[1]) + Number(totalperson[2])}
+            {Number(totalperson[0]) +
+              Number(totalperson[1]) +
+              Number(totalperson[2])}
             <span>명</span>
           </div>
           <div>
@@ -63,7 +68,6 @@ const Dutchwrap = ({ history }) => {
             <span className="oneresult">
               {totalfee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </span>
-            
           </div>
         </div>
         <button className="btn btn-primary" type="button" onClick={onClick}>
@@ -71,7 +75,14 @@ const Dutchwrap = ({ history }) => {
         </button>
       </div>
 
-      {move && <Redirect to={{ pathname: './Result', state: { results,totalfee, totalperson,totalprice} }} />}
+      {move && (
+        <Redirect
+          to={{
+            pathname: './Result',
+            state: { results, totalfee, totalperson, totalprice },
+          }}
+        />
+      )}
     </div>
   );
 };

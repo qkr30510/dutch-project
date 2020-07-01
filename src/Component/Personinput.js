@@ -2,7 +2,7 @@ import React from 'react';
 const Personinput = ({personvalue,OnChange}) => {
     return (
         <>
-            <input type="text" onChange={OnChange} value={personvalue} className='personinput'/>
+            <input type="number" onChange={OnChange} value={personvalue} className='personinput' pattern='\d*' />
         </>
     )
 }

@@ -6,10 +6,11 @@ const PayInput = ({ payvalue, OnChange}) => {
   return (
     <>
       <input
-        type="text"
+        type="number"
         onChange={OnChange}
         value={payvalue}
-        className="payinput"        
+        className="payinput"  
+        pattern='\d*'       
       />
     </>
   );
