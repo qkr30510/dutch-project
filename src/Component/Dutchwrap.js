@@ -21,11 +21,11 @@ const Paylists = [
 ];
 
 const Dutchwrap = ({ history }) => {
-  const [results, setresults] = useState([]);
-  const [totalperson, settotalperson] = useState([]);
-  const [totalprice, settotalprice] = useState([]);
+  const [results, setresults] = useState([0,0,0]);
+  const [totalperson, settotalperson] = useState([0, 0, 0]);
+  const [totalprice, settotalprice] = useState([0, 0, 0]);
   const [move, setmove] = useState(false);
-
+  console.log('results',results)
   let Paylist = Paylists.map((paycontent) => (
     <div key={paycontent.id} className="sbox">
       <span className="tit">{paycontent.title}</span>
@@ -38,12 +38,21 @@ const Dutchwrap = ({ history }) => {
     </div>
   ));
 
-  
-    const totalfee = Number(totalprice[0]) + Number(totalprice[1]) + Number(totalprice[2]);
+  let totalfee = 0;
+  for (let i = 0; i < totalprice.length; i++) {
+    totalfee += Number(totalprice[i]);
+  }
+
+  let people = 0;
+  for (let pp = 0; pp < totalperson.length; pp++) {
+    people += Number(totalperson[pp]);
+  }
+
+
 
   const onClick = () => {
     if (totalprice[0] === undefined) {
-      alert('값을 입력해주세요.')
+      alert('값을 입력해주세요.');
       return false;
     } else {
       setmove(true);
@@ -58,15 +67,13 @@ const Dutchwrap = ({ history }) => {
         <div className="tatalsbox">
           <div className="main">
             <span className="duble">총 인원</span>
-            {Number(totalperson[0]) +
-              Number(totalperson[1]) +
-              Number(totalperson[2])}
+            {people}
             <span>명</span>
           </div>
           <div>
             <span>전체금액</span>
             <span className="oneresult">
-              {totalfee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              {totalfee.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </span>
           </div>
         </div>
@@ -74,7 +81,6 @@ const Dutchwrap = ({ history }) => {
           결과 확인
         </button>
       </div>
-
       {move && (
         <Redirect
           to={{
