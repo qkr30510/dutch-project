@@ -11,7 +11,8 @@ html, body, #root {
 
   background: #eee;
   padding: 1rem;
-  width: 500px;
+  max-width: 500px;
+  width:100%;
   margin: auto;
   border: 1px dotted #333;
   h1 {
