@@ -105,7 +105,7 @@ $breakpoint-mobile: 500px;
 
 @include mobile {
   body {
-    background: #eee;
+    background-color: #eee !important;
     .dutchcontainer {
       border: none;
       .pay {

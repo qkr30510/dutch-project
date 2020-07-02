@@ -25,7 +25,7 @@ const Dutchwrap = ({ history }) => {
   const [totalperson, settotalperson] = useState([0, 0, 0]);
   const [totalprice, settotalprice] = useState([0, 0, 0]);
   const [move, setmove] = useState(false);
-  console.log('results',results)
+  // console.log('results',results)
   let Paylist = Paylists.map((paycontent) => (
     <div key={paycontent.id} className="sbox">
       <span className="tit">{paycontent.title}</span>
@@ -53,7 +53,7 @@ const Dutchwrap = ({ history }) => {
 
 
   const onClick = () => {
-    if (totalprice[0] === undefined) {
+    if (totalprice[0] === 0) {
       alert('값을 입력해주세요.');
       return false;
     } else {
@@ -95,3 +95,4 @@ const Dutchwrap = ({ history }) => {
   );
 };
 export default Dutchwrap;
+

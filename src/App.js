@@ -3,7 +3,6 @@ import Dutchwrap from './Component/Dutchwrap';
 import Result from './Component/Result';
 import { Helmet } from 'react-helmet';
 // import Main from './Component/Main';
-
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const App = () => {

@@ -9,7 +9,7 @@ const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
   const [payvalue, setPayvalue] = useState(0);
   const [personvalue, setPersonvalue] = useState(0);
   const [result, setResult] = useState(0);
-  console.log('result',result)
+  // console.log('result',result)
 
   const OnChange = useCallback((e) => {
     setPersonvalue(e.target.value);

@@ -1,14 +1,16 @@
 import React from 'react';
 import './../Css/Result.scss';
+import { withRouter } from 'react-router-dom';
 
-const Result = ({ location }) => {
+const Result = ({ location,history }) => {
   
-  console.log(location.state.results)
+
+  // console.log(location.state.results)
 
   const fir =  parseInt(location.state.results[0]);
   const fir2 = parseInt(location.state.results[1]);
   const fir3 = parseInt(location.state.results[2]);
-  console.log(Number(fir)+Number(fir2))
+  // console.log(Number(fir)+Number(fir2))
   const detaillists = [
     {
       title: '음식 엔빵',
@@ -52,6 +54,7 @@ const Result = ({ location }) => {
       </div>
     </li>
   ));
+
   return (
     <div className="wrap">
       <div className="dutchcontainer boxwrap ">
@@ -102,3 +105,4 @@ const Result = ({ location }) => {
   );
 };
 export default Result;
+// export default  withRouter(Result) 
