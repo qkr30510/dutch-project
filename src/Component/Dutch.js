@@ -26,7 +26,8 @@ const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
     (e) => {
       if (payvalue && personvalue) {
         // setResult(division.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-        setResult(division.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','))
+        // setResult(division.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','))
+        setResult(division)
       } else {
         setResult(0);
       }
@@ -68,7 +69,7 @@ const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
       </div>
       <div className="oneperson">
         <span>1인 부담금</span>
-        <span className="oneresult">{result}</span>
+        <span className="oneresult">{result.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
       </div>
     </div>
   );

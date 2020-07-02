@@ -5,9 +5,9 @@ const Result = ({ location }) => {
   
   console.log(location.state.results)
 
-  const fir =  location.state.results[0];
-  const fir2 = location.state.results[1];
-  const fir3 = location.state.results[2];
+  const fir =  parseInt(location.state.results[0]);
+  const fir2 = parseInt(location.state.results[1]);
+  const fir3 = parseInt(location.state.results[2]);
   console.log(Number(fir)+Number(fir2))
   const detaillists = [
     {
@@ -46,7 +46,8 @@ const Result = ({ location }) => {
           인원:<span>{detailcontent.totalperson}</span>
         </p>
         <p>
-          1인금액: <span className="bold"> {detailcontent.result}</span>
+          1인금액: <span className="bold"> {detailcontent.result.toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
         </p>
       </div>
     </li>

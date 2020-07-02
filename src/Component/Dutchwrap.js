@@ -43,6 +43,8 @@ const Dutchwrap = ({ history }) => {
     totalfee += Number(totalprice[i]);
   }
 
+  
+
   let people = 0;
   for (let pp = 0; pp < totalperson.length; pp++) {
     people += Number(totalperson[pp]);
@@ -73,7 +75,7 @@ const Dutchwrap = ({ history }) => {
           <div>
             <span>전체금액</span>
             <span className="oneresult">
-              {totalfee.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              {totalfee.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </span>
           </div>
         </div>
