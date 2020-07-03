@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import PayInput from './PayInput';
 import Personinput from './Personinput';
 import './../Css/Dutchwrap.scss';
-import { number } from 'prop-types';
+
 
 const Dutch = ({ setresults, dd, settotalperson, settotalprice }) => {
   // const Main = ({dd, setaa, setbb }) => {

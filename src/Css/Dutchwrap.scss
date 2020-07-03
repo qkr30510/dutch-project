@@ -95,7 +95,7 @@ body,
   display: inline;
 }
 
-$breakpoint-mobile: 500px;
+$breakpoint-mobile: 700px;
 
 @mixin mobile {
   @media (max-width: #{$breakpoint-mobile}) {

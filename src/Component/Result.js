@@ -1,6 +1,5 @@
 import React from 'react';
 import './../Css/Result.scss';
-import { withRouter } from 'react-router-dom';
 
 const Result = ({ location,history }) => {
   
@@ -105,4 +104,3 @@ const Result = ({ location,history }) => {
   );
 };
 export default Result;
-// export default  withRouter(Result) 
