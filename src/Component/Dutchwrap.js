@@ -8,7 +8,7 @@ import './../Css/Dutchwrap.scss';
 const Paylists = [
   {
     id: 1,
-    title: '음식만 먹은 인원',
+    title: '음식 먹은 인원',
   },
   {
     id: 2,
@@ -45,10 +45,10 @@ const Dutchwrap = ({ history }) => {
 
   
 
-  let people = 0;
-  for (let pp = 0; pp < totalperson.length; pp++) {
-    people += Number(totalperson[pp]);
-  }
+  // let people = 0;
+  // for (let pp = 0; pp < totalperson.length; pp++) {
+  //   people += Number(totalperson[pp]);
+  // }
 
 
 
@@ -69,7 +69,7 @@ const Dutchwrap = ({ history }) => {
         <div className="tatalsbox">
           <div className="main">
             <span className="duble">총 인원</span>
-            {people}
+            {totalperson[0]}
             <span>명</span>
           </div>
           <div>
