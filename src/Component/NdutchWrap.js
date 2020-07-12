@@ -1,0 +1,92 @@
+import React, { useState } from 'react';
+import Dutch from './Dutch';
+// import Input2 from './Input2';
+// import Input from './Input';
+import { Redirect } from 'react-router-dom';
+import './../Css/Dutchwrap.scss';
+
+const Paylists = [
+  {
+    id: 1,
+    title: '1차',
+  },
+  {
+    id: 2,
+    title: '2차',
+  },
+  {
+    id: 3,
+    title: '3차',
+  },
+];
+
+const NdutchWrap = ({ history }) => {
+  const [results, setresults] = useState([0,0,0]);
+  const [totalperson, settotalperson] = useState([0, 0, 0]);
+  const [totalprice, settotalprice] = useState([0, 0, 0]);
+  const [move, setmove] = useState(false);
+  // console.log('results',results)
+  let Paylist = Paylists.map((paycontent) => (
+    <div key={paycontent.id} className="sbox">
+      <span className="tit">{paycontent.title}</span>
+      <Dutch
+        setresults={setresults}
+        dd={paycontent.id}
+        settotalperson={settotalperson}
+        settotalprice={settotalprice}
+      />
+    </div>
+  ));
+
+  let totalfee = 0;
+  for (let i = 0; i < totalprice.length; i++) {
+    totalfee += Number(totalprice[i]);
+  }
+
+  
+
+
+  const onClick = () => {
+    if (totalprice[0] === 0) {
+      alert('값을 입력해주세요.');
+      return false;
+    } else {
+      setmove(true);
+    }
+  };
+
+  return (
+    <div className="wrap">
+      <div className="col-xs-2 dutchcontainer">
+        <h1>편하게 더치페이 </h1>
+        {Paylist}
+        <div className="tatalsbox">
+          <div className="main">
+            <span className="duble">총 인원</span>
+            {totalperson[0]}
+            <span>명</span>
+          </div>
+          <div>
+            <span>전체금액</span>
+            <span className="oneresult">
+              {totalfee.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            </span>
+          </div>
+        </div>
+        <button className="btn btn-primary" type="button" onClick={onClick}>
+          결과 확인
+        </button>
+      </div>
+      {move && (
+        <Redirect
+          to={{
+            pathname: './Nresult',
+            state: { results, totalfee, totalperson, totalprice },
+          }}
+        />
+      )}
+    </div>
+  );
+};
+export default NdutchWrap;
+
