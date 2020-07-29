@@ -76,21 +76,19 @@ const Result = ({ location,history }) => {
           <li>
             음식+술 먹은사람:{' '}
             <span className="bold">
-              {(fir+fir2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              { fir2 === 0 ? '0' : (fir+fir2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}              
             </span>
           </li>
           <li>
             음식 + 음료 먹은사람:{' '}
             <span className="bold">
-              {(fir+fir3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            { fir3 === 0 ? '0' : (fir+fir3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}              
             </span>
           </li>
           <li>
             음식 + 술 + 음료 먹은사람:{' '}
             <span className="bold">
-              {(fir+fir2+fir3)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            { fir2 === 0 || fir3 === 0 ? '0' : (fir+fir2+fir3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}                            
             </span>
           </li>
         </ul>

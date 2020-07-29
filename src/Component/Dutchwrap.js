@@ -21,7 +21,7 @@ const Paylists = [
 ];
 
 const Dutchwrap = ({ history }) => {
-  const [results, setresults] = useState([0,0,0]);
+  const [results, setresults] = useState([0, 0, 0]);
   const [totalperson, settotalperson] = useState([0, 0, 0]);
   const [totalprice, settotalprice] = useState([0, 0, 0]);
   const [move, setmove] = useState(false);
@@ -43,14 +43,10 @@ const Dutchwrap = ({ history }) => {
     totalfee += Number(totalprice[i]);
   }
 
-  
-
   // let people = 0;
   // for (let pp = 0; pp < totalperson.length; pp++) {
   //   people += Number(totalperson[pp]);
   // }
-
-
 
   const onClick = () => {
     if (totalprice[0] === 0) {
@@ -75,13 +71,21 @@ const Dutchwrap = ({ history }) => {
           <div>
             <span>전체금액</span>
             <span className="oneresult">
-              {totalfee.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              {totalfee
+                .toFixed(0)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </span>
           </div>
         </div>
-        <button className="btn btn-primary" type="button" onClick={onClick}>
-          결과 확인
-        </button>
+        <div className="buttonWrap">
+          {/* <button className="btn btn-warning" type="button">
+            추가/삭제하기
+          </button>           */}
+          <button className="btn btn-primary" type="button" onClick={onClick}>
+            결과 확인
+          </button>
+        </div>
       </div>
       {move && (
         <Redirect
@@ -95,4 +99,3 @@ const Dutchwrap = ({ history }) => {
   );
 };
 export default Dutchwrap;
-

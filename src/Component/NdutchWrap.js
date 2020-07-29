@@ -73,9 +73,14 @@ const NdutchWrap = ({ history }) => {
             </span>
           </div>
         </div>
-        <button className="btn btn-primary" type="button" onClick={onClick}>
-          결과 확인
-        </button>
+        <div className="buttonWrap">
+          {/* <button className="btn btn-warning" type="button">
+            추가/삭제하기
+          </button>           */}
+          <button className="btn btn-primary" type="button" onClick={onClick}>
+            결과 확인
+          </button>
+        </div>
       </div>
       {move && (
         <Redirect

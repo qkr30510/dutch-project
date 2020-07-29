@@ -76,13 +76,13 @@ const Nresult = ({ location,history }) => {
           <li>
             2차:{' '}
             <span className="bold">
-              {(fir+fir2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            { fir2 === 0 ? '0' : (fir+fir2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}              
             </span>
           </li>
           <li>
             3차:{' '}
             <span className="bold">
-              {(fir+fir3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            { fir3 === 0 ? '0' : (fir+fir3).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}              
             </span>
           </li>
         </ul>
